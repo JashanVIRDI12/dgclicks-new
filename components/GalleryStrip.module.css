@@ -1,0 +1,201 @@
+.section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: var(--proof-surface);
+  color: white;
+  padding: clamp(2.75rem, 5vw, 5.5rem) 0 clamp(4.5rem, 8vw, 8rem);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 82% 12%, rgba(74, 137, 200, 0.2), transparent 32%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 28%, black 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 28%, black 100%);
+}
+
+.intro {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.72fr);
+  align-items: end;
+  gap: 3rem;
+  margin-bottom: clamp(2rem, 4vw, 3.75rem);
+}
+
+.title {
+  max-width: 13ch;
+  margin-top: 0.7rem;
+  color: white;
+  font-family: var(--font-bricolage), system-ui, sans-serif;
+  font-size: clamp(2.5rem, 5.6vw, 5rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+
+.copyText {
+  max-width: 34rem;
+  color: #a7bcd2;
+  font-size: clamp(1rem, 1.35vw, 1.16rem);
+  line-height: 1.65;
+}
+
+.reels {
+  position: relative;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.rail {
+  width: 100%;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  transform-origin: center;
+}
+
+.copy {
+  display: flex;
+  flex: none;
+  gap: 0.9rem;
+  padding-right: 0.9rem;
+}
+
+.frame {
+  position: relative;
+  flex: none;
+  width: var(--frame-width);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.35rem;
+  background: #142638;
+}
+
+.railPrimary .frame {
+  height: clamp(12.5rem, 17vw, 15rem);
+}
+
+.railCompact .frame {
+  height: clamp(10.5rem, 14vw, 12.5rem);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.frame:hover .image {
+  transform: scale(1.025);
+}
+
+.wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(14, 26, 40, 0.02) 45%, rgba(14, 26, 40, 0.72) 100%);
+}
+
+.caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 2.25rem;
+  padding: 0.55rem 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(14, 26, 40, 0.88);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-azeret), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 560;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+.captionIndex {
+  color: #cedb58;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-top: 2.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .copyText {
+    max-width: 31rem;
+    font-size: 0.98rem;
+  }
+
+  .reels,
+  .copy {
+    gap: 0.6rem;
+  }
+
+  .copy {
+    padding-right: 0.6rem;
+  }
+
+  .frame {
+    width: min(74vw, 19rem);
+  }
+
+  .railPrimary .frame {
+    height: 9.5rem;
+  }
+
+  .railCompact .frame {
+    height: 8.5rem;
+  }
+
+  .caption {
+    min-height: 2rem;
+    padding: 0.46rem 0.65rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  .rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .track {
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .copy[aria-hidden="true"] {
+    display: none;
+  }
+
+  .image {
+    transition: none;
+  }
+}

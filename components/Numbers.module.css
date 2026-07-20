@@ -1,0 +1,44 @@
+.seam {
+  position: relative;
+  width: 100%;
+  height: clamp(2.75rem, 5vw, 5.5rem);
+  overflow: hidden;
+}
+
+.seamTop {
+  background: var(--night);
+}
+
+.seamBottom {
+  background: var(--proof-surface);
+}
+
+.accentTop,
+.accentBottom,
+.skyTop,
+.skyBottom {
+  position: absolute;
+  inset: 0;
+}
+
+/* The green is the intentional brand seam. The surface beneath it shares the
+   gallery's exact background, so no horizontal navy band appears below it. */
+.accentTop {
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  background: var(--mint);
+}
+
+.accentBottom {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  background: var(--mint);
+}
+
+.skyTop {
+  clip-path: polygon(0 100%, 100% 18%, 100% 100%);
+  background: var(--sky);
+}
+
+.skyBottom {
+  clip-path: polygon(0 0, 100% 0, 0 82%);
+  background: var(--sky);
+}

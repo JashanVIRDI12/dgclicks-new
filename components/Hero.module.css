@@ -1,0 +1,265 @@
+.stage {
+  --hero-quiet-zone: radial-gradient(
+    ellipse 68% 82% at 28.5% 50.5%,
+    rgb(14 26 40 / 88%) 0%,
+    rgb(14 26 40 / 64%) 42%,
+    rgb(14 26 40 / 0%) 76%
+  );
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: max(46rem, 100svh);
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse 86% 108% at 50% 48%,
+      rgb(14 26 40 / 0%) 52%,
+      rgb(14 26 40 / 24%) 100%
+    ),
+    var(--hero-quiet-zone),
+    linear-gradient(
+      180deg,
+      rgb(14 26 40 / 0%) 48%,
+      rgb(14 26 40 / 34%) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgb(14 26 40 / 94%) 0%,
+      rgb(14 26 40 / 76%) 29%,
+      rgb(14 26 40 / 28%) 52%,
+      rgb(14 26 40 / 0%) 72%
+    ),
+    radial-gradient(
+      circle at 86% 18%,
+      rgb(140 207 226 / 78%) 0%,
+      rgb(74 137 200 / 38%) 35%,
+      rgb(74 137 200 / 0%) 70%
+    ),
+    linear-gradient(
+      90deg,
+      #0e1a28 0%,
+      #0e1a28 28%,
+      #2e6ba8 61%,
+      #4a89c8 82%,
+      #8ccfe2 100%
+    );
+  color: #fff;
+}
+
+.sceneLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sceneLayer canvas {
+  display: block;
+}
+
+.loadingVeil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: transparent;
+  opacity: 1;
+  pointer-events: none;
+  transition:
+    opacity 480ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 480ms step-end;
+}
+
+.loadingVeilReady {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.loaderReadout {
+  position: absolute;
+  top: 50%;
+  right: max(clamp(1.25rem, 5vw, 5rem), env(safe-area-inset-right));
+  display: grid;
+  width: min(12rem, 31vw);
+  gap: 0.55rem;
+  color: #a7bcd2;
+  font-family: var(--font-azeret), ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: translateY(-50%);
+}
+
+.loaderValue {
+  color: #fff;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.loaderTrack {
+  height: 1px;
+  overflow: hidden;
+  background: rgb(167 188 210 / 24%);
+}
+
+.loaderTrack span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #cedb58;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 180ms ease-out;
+}
+
+.copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  width: 100%;
+  padding-top: clamp(7.25rem, 15svh, 9.5rem);
+  padding-bottom: clamp(5.5rem, 11svh, 7rem);
+}
+
+.copyInner {
+  width: min(100%, 56rem);
+}
+
+.subhead {
+  max-width: 36rem;
+}
+
+.ticker {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgb(255 255 255 / 13%);
+  background: #0e1a28;
+  padding-top: 1rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+}
+
+.staticGrid {
+  position: absolute;
+  top: 7.25rem;
+  right: max(clamp(1rem, 3vw, 3rem), env(safe-area-inset-right));
+  bottom: 5.75rem;
+  z-index: 1;
+  display: grid;
+  width: min(36vw, 34rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid rgb(167 188 210 / 24%);
+  background: rgb(167 188 210 / 22%);
+}
+
+.staticCell {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background: #142638;
+}
+
+.staticCell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proofList {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  .copyInner {
+    width: min(59vw, 56rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .stage {
+    --hero-quiet-zone: radial-gradient(
+      ellipse 92% 78% at 50% 42%,
+      rgb(14 26 40 / 88%) 0%,
+      rgb(14 26 40 / 66%) 52%,
+      rgb(14 26 40 / 0%) 86%
+    );
+
+    min-height: max(50rem, 100svh);
+  }
+
+  .copy {
+    align-items: flex-start;
+    padding-top: max(7.5rem, calc(6.75rem + env(safe-area-inset-top)));
+    padding-bottom: 5rem;
+  }
+
+  .copyInner {
+    width: 100%;
+  }
+
+  .subhead {
+    max-width: 34ch;
+  }
+
+  .loaderReadout {
+    top: auto;
+    right: 1.25rem;
+    bottom: calc(4.75rem + env(safe-area-inset-bottom));
+    width: 9rem;
+    transform: none;
+  }
+
+  .staticStage {
+    min-height: max(56rem, 100svh);
+  }
+
+  .staticStage .copy {
+    padding-bottom: 18rem;
+  }
+
+  .staticGrid {
+    top: auto;
+    right: max(1.25rem, env(safe-area-inset-right));
+    bottom: calc(4.5rem + env(safe-area-inset-bottom));
+    left: max(1.25rem, env(safe-area-inset-left));
+    width: auto;
+    height: 13rem;
+  }
+}
+
+@media (max-width: 419px) {
+  .copy {
+    padding-top: max(7rem, calc(6.25rem + env(safe-area-inset-top)));
+  }
+}
+
+@media (max-height: 720px) and (min-width: 768px) {
+  .stage {
+    min-height: 44rem;
+  }
+
+  .copy {
+    align-items: flex-start;
+    padding-top: 7.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loadingVeil,
+  .loaderTrack span {
+    transition: none;
+  }
+}

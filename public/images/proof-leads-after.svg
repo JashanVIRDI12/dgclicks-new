@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Lead dashboard after campaign improvements</title>
+  <desc id="desc">A connected lead dashboard showing more than 140 qualified enquiries per month and a visible enquiry pipeline.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102840"/><stop offset="1" stop-color="#071321"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#4a89c8"/><stop offset="1" stop-color="#cedb58"/></linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#4a89c8" stop-opacity=".34"/><stop offset="1" stop-color="#4a89c8" stop-opacity="0"/></linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#fff" stroke-opacity=".035"/></pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <rect width="214" height="1000" fill="#091827"/>
+  <rect x="33" y="37" width="46" height="46" rx="11" fill="#4a89c8"/>
+  <text x="96" y="69" fill="#eef4fa" font-family="Arial, sans-serif" font-size="22" font-weight="700">DG / LEADS</text>
+  <text x="35" y="160" fill="#8fa6bb" font-family="Arial, sans-serif" font-size="13" letter-spacing="3">OVERVIEW</text>
+  <rect x="25" y="185" width="164" height="49" rx="8" fill="#173451" stroke="#4a89c8" stroke-opacity=".35"/>
+  <circle cx="49" cy="209" r="5" fill="#cedb58"/>
+  <text x="67" y="215" fill="#eef4fa" font-family="Arial, sans-serif" font-size="16">Pipeline</text>
+  <circle cx="49" cy="274" r="5" fill="#4a89c8"/>
+  <text x="67" y="280" fill="#91a9bf" font-family="Arial, sans-serif" font-size="16">Campaigns</text>
+  <circle cx="49" cy="337" r="5" fill="#4a89c8"/>
+  <text x="67" y="343" fill="#91a9bf" font-family="Arial, sans-serif" font-size="16">Sources</text>
+  <text x="262" y="69" fill="#a9bdd0" font-family="Arial, sans-serif" font-size="14" letter-spacing="3">ACTIVE COACHLINES / PIPELINE</text>
+  <text x="262" y="130" fill="#f7fafc" font-family="Arial, sans-serif" font-size="35" font-weight="700">Lead operations</text>
+  <text x="262" y="164" fill="#91a9bf" font-family="Arial, sans-serif" font-size="16">Connected acquisition and enquiry reporting</text>
+  <rect x="1320" y="105" width="188" height="52" rx="26" fill="#182d31" stroke="#657b3f"/>
+  <circle cx="1350" cy="131" r="6" fill="#cedb58"/>
+  <text x="1370" y="137" fill="#dfe98b" font-family="Arial, sans-serif" font-size="14" letter-spacing="2">AFTER</text>
+
+  <g transform="translate(262 215)">
+    <rect width="365" height="180" rx="14" fill="#102238" stroke="#315472"/>
+    <text x="28" y="45" fill="#91a9bf" font-family="Arial, sans-serif" font-size="14" letter-spacing="2">QUALIFIED ENQUIRIES / MO</text>
+    <text x="28" y="122" fill="#f7fafc" font-family="Arial, sans-serif" font-size="72" font-weight="700">140+</text>
+    <path d="M270 132l20-22 22 5 25-42" fill="none" stroke="#cedb58" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(653 215)">
+    <rect width="365" height="180" rx="14" fill="#102238" stroke="#315472"/>
+    <text x="28" y="45" fill="#91a9bf" font-family="Arial, sans-serif" font-size="14" letter-spacing="2">ENQUIRY SOURCES</text>
+    <text x="28" y="110" fill="#f0f5f9" font-family="Arial, sans-serif" font-size="35" font-weight="700">Connected</text>
+    <text x="28" y="143" fill="#8fa6bb" font-family="Arial, sans-serif" font-size="15">Search · site · tracked actions</text>
+  </g>
+  <g transform="translate(1044 215)">
+    <rect width="464" height="180" rx="14" fill="#102238" stroke="#315472"/>
+    <text x="28" y="45" fill="#91a9bf" font-family="Arial, sans-serif" font-size="14" letter-spacing="2">VISIBILITY</text>
+    <text x="28" y="110" fill="#f0f5f9" font-family="Arial, sans-serif" font-size="35" font-weight="700">Friday-ready</text>
+    <text x="28" y="143" fill="#8fa6bb" font-family="Arial, sans-serif" font-size="15">One source-to-enquiry measurement loop</text>
+  </g>
+
+  <g transform="translate(262 430)">
+    <rect width="770" height="480" rx="14" fill="#0d1e31" stroke="#315472"/>
+    <text x="30" y="49" fill="#edf4f9" font-family="Arial, sans-serif" font-size="18" font-weight="700">Qualified enquiry trend</text>
+    <text x="30" y="77" fill="#829cb3" font-family="Arial, sans-serif" font-size="14">Monthly view</text>
+    <g stroke="#9fb4c7" stroke-opacity=".14"><path d="M64 144H730M64 218H730M64 292H730M64 366H730"/><path d="M64 120V392"/></g>
+    <path d="M68 355 C128 348 160 325 217 307 S306 285 356 249 S447 225 506 190 S602 169 664 124 S706 104 730 82 L730 392H68Z" fill="url(#area)"/>
+    <path d="M68 355 C128 348 160 325 217 307 S306 285 356 249 S447 225 506 190 S602 169 664 124 S706 104 730 82" fill="none" stroke="url(#line)" stroke-width="7" stroke-linecap="round"/>
+    <g fill="#cedb58"><circle cx="68" cy="355" r="6"/><circle cx="217" cy="307" r="6"/><circle cx="356" cy="249" r="6"/><circle cx="506" cy="190" r="6"/><circle cx="664" cy="124" r="6"/><circle cx="730" cy="82" r="7"/></g>
+    <text x="62" y="428" fill="#7892a9" font-family="Arial, sans-serif" font-size="13">JAN</text><text x="196" y="428" fill="#7892a9" font-family="Arial, sans-serif" font-size="13">FEB</text><text x="332" y="428" fill="#7892a9" font-family="Arial, sans-serif" font-size="13">MAR</text><text x="468" y="428" fill="#7892a9" font-family="Arial, sans-serif" font-size="13">APR</text><text x="604" y="428" fill="#7892a9" font-family="Arial, sans-serif" font-size="13">MAY</text>
+  </g>
+  <g transform="translate(1058 430)">
+    <rect width="450" height="480" rx="14" fill="#0d1e31" stroke="#315472"/>
+    <text x="28" y="49" fill="#edf4f9" font-family="Arial, sans-serif" font-size="18" font-weight="700">Enquiry handoff</text>
+    <text x="28" y="77" fill="#829cb3" font-family="Arial, sans-serif" font-size="14">Recent qualified signals</text>
+    <g font-family="Arial, sans-serif">
+      <rect x="26" y="112" width="398" height="78" rx="10" fill="#142b43"/><circle cx="56" cy="151" r="12" fill="#4a89c8"/><text x="82" y="145" fill="#e2ebf2" font-size="15">Charter quote</text><text x="82" y="169" fill="#8ca4b9" font-size="13">Website · assigned</text><text x="330" y="158" fill="#cedb58" font-size="12">QUALIFIED</text>
+      <rect x="26" y="207" width="398" height="78" rx="10" fill="#142b43"/><circle cx="56" cy="246" r="12" fill="#4a89c8"/><text x="82" y="240" fill="#e2ebf2" font-size="15">Fleet enquiry</text><text x="82" y="264" fill="#8ca4b9" font-size="13">Search · assigned</text><text x="330" y="253" fill="#cedb58" font-size="12">QUALIFIED</text>
+      <rect x="26" y="302" width="398" height="78" rx="10" fill="#142b43"/><circle cx="56" cy="341" r="12" fill="#4a89c8"/><text x="82" y="335" fill="#e2ebf2" font-size="15">Group booking</text><text x="82" y="359" fill="#8ca4b9" font-size="13">Landing page · assigned</text><text x="330" y="348" fill="#cedb58" font-size="12">QUALIFIED</text>
+    </g>
+  </g>
+</svg>
