@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
 import { services } from "@/lib/data";
 import { homeImg } from "@/lib/home-images";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { gsap, SplitText, prefersReducedMotion } from "@/lib/gsap";
 
 /* The zoom scene reads left-to-right as the five disciplines, framed by the
@@ -30,6 +31,10 @@ const PARALLAX_IMAGES = [
 
 export default function HowWeScale() {
   const ref = useRef<HTMLElement>(null);
+  // The zoom scene fans seven absolutely-positioned frames out from centre —
+  // there's no layout that reads well once the viewport is narrower than the
+  // frames themselves, so it's desktop-only rather than squeezed down.
+  const showZoomScene = useMediaQuery("(min-width: 1024px)");
 
   useGSAP(
     () => {
@@ -93,8 +98,8 @@ export default function HowWeScale() {
         </p>
       </div>
 
-      {/* Zoom scene */}
-      <ZoomParallax images={PARALLAX_IMAGES} />
+      {/* Zoom scene — desktop only, see showZoomScene above */}
+      {showZoomScene && <ZoomParallax images={PARALLAX_IMAGES} />}
 
       {/* Outro */}
       <div className="wrap pb-24 pt-16 sm:pb-28">

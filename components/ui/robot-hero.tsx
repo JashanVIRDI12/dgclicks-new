@@ -637,7 +637,7 @@ export function RobotHero({
       style={{ background: `linear-gradient(to bottom, ${entorno.fondoArriba} 0%, ${entorno.fondoArriba} 55%, ${entorno.fondoMedio} 65%, ${entorno.fondoAbajo} 100%)` }}
     >
       <div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
+        className="absolute inset-x-0 top-0 h-[46dvh] min-h-[300px] sm:inset-0 sm:h-auto sm:min-h-0 flex items-center justify-center pointer-events-none overflow-hidden"
         style={{
           zIndex: 0,
           // The word dissolves before the content band so the eyebrow and
@@ -666,7 +666,17 @@ export function RobotHero({
         />
       </div>
 
-      <div className="absolute inset-0 z-10">
+      {/*
+        Below `sm` the canvas only owns the top band of the hero instead of
+        the full section. On desktop the camera's default framing centres
+        the robot at mid-viewport, which is fine because the text sits far
+        below in the wide/short aspect — but on a narrow/tall phone screen
+        that same centring puts the robot right on top of the headline.
+        Giving the canvas a fixed, short height keeps the robot's whole
+        scene (and the camera's default centring within it) confined above
+        the text, so they can never overlap regardless of device height.
+      */}
+      <div className="absolute inset-x-0 top-0 z-10 h-[46dvh] min-h-[300px] sm:inset-0 sm:h-auto sm:min-h-0">
         <Canvas
           shadows
           camera={{ position: [0, 0.2, 6], fov: 40 }}
