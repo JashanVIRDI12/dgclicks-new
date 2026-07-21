@@ -1,7 +1,9 @@
 import Link from "next/link";
+import BrandLogo from "@/components/brand-logo";
 
 const nav = [
   { label: "Services", href: "/services" },
+  { label: "AI Solutions", href: "/ai" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
   { label: "Work", href: "/#showcase" },
@@ -19,7 +21,7 @@ const social = [
   },
   {
     label: "Email",
-    href: "mailto:hello@dgclicks.com",
+    href: "mailto:info@digiclicks.ca",
     icon: (
       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden>
         <rect x="3.5" y="5.5" width="17" height="13" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
@@ -35,12 +37,10 @@ export default function SiteFooter() {
       <div className="wrap">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <p className="font-display text-2xl tracking-tight text-ink">
-              DG Clicks
-            </p>
-            <p className="mt-3 max-w-sm text-sm text-slate">
-              Clicks are cheap. Clients are the point. Bolton studio · remote
-              bench · one pipeline.
+            <BrandLogo variant="light" className="h-9 sm:h-10" />
+            <p className="mt-4 max-w-sm text-sm text-slate">
+              Building digital experiences that move businesses forward. Design,
+              strategy, and growth under one experienced team.
             </p>
           </div>
           <div>
@@ -61,18 +61,28 @@ export default function SiteFooter() {
           <div>
             <p className="eyebrow mb-4">Contact</p>
             <a
-              href="mailto:hello@dgclicks.com"
+              href="mailto:info@digiclicks.ca"
               className="block cursor-pointer text-sm text-slate transition-colors hover:text-ink"
             >
-              hello@dgclicks.com
+              info@digiclicks.ca
             </a>
-            <p className="mt-2 text-sm text-slate">Bolton, Ontario</p>
+            <a
+              href="tel:+16475497017"
+              className="mt-2 block cursor-pointer text-sm text-slate transition-colors hover:text-ink"
+            >
+              (647) 549-7017
+            </a>
+            <p className="mt-2 text-sm text-slate">
+              12545 Coleraine Drive, Unit 9
+              <br />
+              Caledon, ON L7E 3B5
+            </p>
             <ul className="mt-5 flex gap-3">
               {social.map((s) => (
                 <li key={s.label}>
                   <a
                     href={s.href}
-                    className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[rgba(15,27,45,0.12)] text-slate transition-colors hover:border-cobalt hover:text-cobalt"
+                    className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-[rgba(15,27,45,0.12)] text-slate transition-colors hover:border-cobalt hover:text-cobalt sm:h-9 sm:w-9"
                     aria-label={s.label}
                     rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     target={s.href.startsWith("http") ? "_blank" : undefined}
@@ -86,7 +96,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-[rgba(15,27,45,0.08)] pt-6 text-caption text-slate sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} DG Clicks. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Digi Clicks. All rights reserved.</p>
           <p>Privacy · Terms</p>
         </div>
       </div>

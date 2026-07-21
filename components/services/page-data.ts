@@ -48,7 +48,7 @@ export const SERVICE_PAGE: readonly ServicePageItem[] = [
     headline: "Build the site around the next useful action.",
     copy: "We plan, write, and build a fast, accessible site that answers buyer questions and makes the next step obvious — with forms and analytics working at launch.",
     measure: "Path from landing page to qualified enquiry",
-    proof: "0.8s median load — DG Clicks build standard",
+    proof: "0.8s median load — Digi Clicks build standard",
     deliverables: [
       "Positioning-led page architecture",
       "Responsive, accessible development",
@@ -66,7 +66,7 @@ export const SERVICE_PAGE: readonly ServicePageItem[] = [
     tone: "cloud",
     outcome: "Spend that answers for itself.",
     headline: "Put budget behind demand you can prove.",
-    copy: "Campaigns, landing pages, and follow-up are tuned as one system so qualified leads move faster and wasted spend has nowhere to hide. Your Friday report connects spend to calls, forms, and booked work.",
+    copy: "Campaigns, landing pages, and follow-up are tuned as one system so qualified leads move faster and wasted spend has nowhere to hide. Clear reporting connects spend to calls, forms, and booked work.",
     measure: "Spend divided by qualified leads",
     proof: "8 → 140+ enquiries/mo — Active Coachlines",
     deliverables: [

@@ -1,5 +1,5 @@
 /* ————————————————————————————————————————————————————————————————
-   SERVICES SHOWCASE — the full DG Clicks growth ecosystem.
+   SERVICES SHOWCASE — the full Digi Clicks growth ecosystem.
    Twenty disciplines, five of them promoted to full editorial spreads.
    Copy is written to sound confident and specific, never generic SaaS.
    ———————————————————————————————————————————————————————————————— */
@@ -31,25 +31,24 @@ export type ShowcaseService = {
 };
 
 const IMG = {
-  webdev: "/images/hero-webgl/webdev-1280.webp",
-  dashboard: "/images/hero-webgl/dashboard-1280.webp",
-  workDesign: "/images/hero-webgl/work-design-1280.webp",
-  harrier: "/images/hero-webgl/case-harrier-1280.webp",
-  officeTeam: "/images/hero-webgl/office-team-1280.webp",
-  smartx: "/images/webgl/case-smartx.webp",
-  activecoach: "/images/webgl/case-activecoach.webp",
-  chw: "/images/webgl/case-chw.webp",
-  workCode: "/images/work-code.jpg",
-  workSketch: "/images/work-sketch.jpg",
-  workspace: "/images/workspace.jpg",
-  officeWorkshop: "/images/office-workshop.jpg",
-  officeCollab: "/images/office-collab.jpg",
-  officeRemote: "/images/office-remote.jpg",
-  restaurant: "/images/serve-restaurant.jpg",
-  printing: "/images/serve-printing.jpg",
-  realestate: "/images/serve-realestate.jpg",
-  trades: "/images/serve-trades.jpg",
-  texture: "/images/hero-texture.jpg",
+  webdev: "/images/generated/home-web-4k.png",
+  seo: "/images/generated/home-seo-4k.png",
+  paidAds: "/images/generated/home-ads-4k.png",
+  branding: "/images/generated/home-design-4k.png",
+  ai: "/images/generated/home-web-4k.png",
+  uiUx: "/images/generated/home-web-4k.png",
+  copywriting: "/images/generated/home-design-4k.png",
+  localSeo: "/images/generated/home-seo-4k.png",
+  metaAds: "/images/generated/home-social-4k.png",
+  googleAds: "/images/generated/home-ads-4k.png",
+  content: "/images/generated/home-social-4k.png",
+  social: "/images/generated/home-social-4k.png",
+  email: "/images/generated/home-design-4k.png",
+  landing: "/images/generated/home-web-4k.png",
+  cro: "/images/generated/home-ads-4k.png",
+  analytics: "/images/generated/home-seo-4k.png",
+  performance: "/images/generated/home-ads-4k.png",
+  strategy: "/images/generated/home-team-4k.png",
 } as const;
 
 // Brand-adjacent accent palette — electric blue, lime, sky, violet, amber, chrome.
@@ -85,7 +84,7 @@ export const SHOWCASE: ShowcaseService[] = [
     blurb: "Rankings that keep paying rent after the campaign ends.",
     copy: "Technical fixes shipped, commercial intent mapped, pages that compound. We measure movement against calls and forms — not vanity keyword counts.",
     cta: "See the method",
-    image: IMG.dashboard,
+    image: IMG.seo,
     featured: "analytics",
   },
   {
@@ -97,7 +96,7 @@ export const SHOWCASE: ShowcaseService[] = [
     blurb: "Budget behind demand you can actually prove.",
     copy: "Google and Meta tuned as one system — creative, landing page, and follow-up. Spend gets rebalanced weekly against qualified leads, documented in plain English.",
     cta: "View performance",
-    image: IMG.harrier,
+    image: IMG.paidAds,
     featured: "ads",
   },
   {
@@ -109,38 +108,38 @@ export const SHOWCASE: ShowcaseService[] = [
     blurb: "A system people recognise before the logo lands.",
     copy: "Logotype, palette, type, and motion built as one disciplined kit — so every ad, deck, and page looks like it came from the same confident business.",
     cta: "See the system",
-    image: IMG.workDesign,
+    image: IMG.branding,
     featured: "brand",
   },
   {
     id: "ai-automation",
     num: "05",
-    name: "AI Automation",
+    name: "AI-Powered Solutions",
     category: "Systems",
     accent: A.violet,
-    blurb: "Connected workflows that do the busywork for you.",
-    copy: "Lead routing, enrichment, replies, and reporting wired into one flow. The machine handles the repeatable so your team keeps the judgement calls.",
-    cta: "Map a workflow",
-    image: IMG.texture,
+    blurb: "Helping your business work smarter with AI.",
+    copy: "AI strategy, custom workflows, business knowledge assistants, and AI-accelerated content — practical automation that improves customer experience and decision-making.",
+    cta: "Explore AI solutions",
+    image: IMG.ai,
     featured: "flow",
   },
 
   // — The wider index —
-  { id: "website-design", num: "06", name: "Website Design", category: "Design", accent: A.blue, blurb: "Interfaces designed around one useful action.", cta: "Learn more", image: IMG.workSketch },
-  { id: "ui-ux", num: "07", name: "UI / UX Design", category: "Design", accent: A.sky, blurb: "Flows tested against real behaviour, not opinion.", cta: "Learn more", image: IMG.workCode },
-  { id: "graphic-design", num: "08", name: "Graphic Design", category: "Brand", accent: A.amber, blurb: "Campaign creative that holds its shape everywhere.", cta: "Learn more", image: IMG.workDesign },
-  { id: "copywriting", num: "09", name: "Copywriting", category: "Brand", accent: A.chrome, blurb: "Words that carry the offer, not the ego.", cta: "Learn more", image: IMG.workSketch },
-  { id: "local-seo", num: "10", name: "Local SEO", category: "Growth", accent: A.sky, blurb: "Own the map pack in the towns that matter.", cta: "Learn more", image: IMG.restaurant },
-  { id: "meta-ads", num: "11", name: "Meta Ads", category: "Growth", accent: A.lime, blurb: "Feed-native creative that earns the thumb-stop.", cta: "Learn more", image: IMG.workDesign },
-  { id: "google-ads", num: "12", name: "Google Ads", category: "Growth", accent: A.cobalt, blurb: "Intent captured the moment it's expressed.", cta: "Learn more", image: IMG.dashboard },
-  { id: "content-strategy", num: "13", name: "Content Strategy", category: "Growth", accent: A.chrome, blurb: "A publishing rhythm tied to buyer questions.", cta: "Learn more", image: IMG.officeWorkshop },
-  { id: "social-media", num: "14", name: "Social Media", category: "Growth", accent: A.violet, blurb: "Attention converted into buyer signals.", cta: "Learn more", image: IMG.workDesign },
-  { id: "email-marketing", num: "15", name: "Email Marketing", category: "Growth", accent: A.sky, blurb: "Automations that follow up so you don't have to.", cta: "Learn more", image: IMG.dashboard },
-  { id: "landing-pages", num: "16", name: "Landing Pages", category: "Build", accent: A.blue, blurb: "Single-minded pages that match the ad promise.", cta: "Learn more", image: IMG.webdev },
-  { id: "cro", num: "17", name: "Conversion Optimization", category: "Optimize", accent: A.lime, blurb: "Tested changes, measured against the baseline.", cta: "Learn more", image: IMG.dashboard },
-  { id: "analytics", num: "18", name: "Analytics & Reporting", category: "Optimize", accent: A.cobalt, blurb: "One Friday report you can actually trust.", cta: "Learn more", image: IMG.smartx },
-  { id: "performance", num: "19", name: "Performance Optimization", category: "Optimize", accent: A.sky, blurb: "Speed as a ranking factor and a closing factor.", cta: "Learn more", image: IMG.workCode },
-  { id: "marketing-strategy", num: "20", name: "Marketing Strategy", category: "Growth", accent: A.amber, blurb: "The plan that decides where the budget goes.", cta: "Learn more", image: IMG.officeTeam },
+  { id: "website-design", num: "06", name: "Website Design", category: "Design", accent: A.blue, blurb: "Interfaces designed around one useful action.", cta: "Learn more", image: IMG.landing },
+  { id: "ui-ux", num: "07", name: "UI / UX Design", category: "Design", accent: A.sky, blurb: "Flows tested against real behaviour, not opinion.", cta: "Learn more", image: IMG.uiUx },
+  { id: "graphic-design", num: "08", name: "Graphic Design", category: "Brand", accent: A.amber, blurb: "Campaign creative that holds its shape everywhere.", cta: "Learn more", image: IMG.branding },
+  { id: "copywriting", num: "09", name: "Copywriting", category: "Brand", accent: A.chrome, blurb: "Words that carry the offer, not the ego.", cta: "Learn more", image: IMG.copywriting },
+  { id: "local-seo", num: "10", name: "Local SEO", category: "Growth", accent: A.sky, blurb: "Own the map pack in the towns that matter.", cta: "Learn more", image: IMG.localSeo },
+  { id: "meta-ads", num: "11", name: "Meta Ads", category: "Growth", accent: A.lime, blurb: "Feed-native creative that earns the thumb-stop.", cta: "Learn more", image: IMG.metaAds },
+  { id: "google-ads", num: "12", name: "Google Ads", category: "Growth", accent: A.cobalt, blurb: "Intent captured the moment it's expressed.", cta: "Learn more", image: IMG.googleAds },
+  { id: "content-strategy", num: "13", name: "Content Strategy", category: "Growth", accent: A.chrome, blurb: "A publishing rhythm tied to buyer questions.", cta: "Learn more", image: IMG.content },
+  { id: "social-media", num: "14", name: "Social Media", category: "Growth", accent: A.violet, blurb: "Attention converted into buyer signals.", cta: "Learn more", image: IMG.social },
+  { id: "email-marketing", num: "15", name: "Email Marketing", category: "Growth", accent: A.sky, blurb: "Automations that follow up so you don't have to.", cta: "Learn more", image: IMG.email },
+  { id: "landing-pages", num: "16", name: "Landing Pages", category: "Build", accent: A.blue, blurb: "Single-minded pages that match the ad promise.", cta: "Learn more", image: IMG.landing },
+  { id: "cro", num: "17", name: "Conversion Optimization", category: "Optimize", accent: A.lime, blurb: "Tested changes, measured against the baseline.", cta: "Learn more", image: IMG.cro },
+  { id: "analytics", num: "18", name: "Analytics & Reporting", category: "Optimize", accent: A.cobalt, blurb: "Clear reporting you can actually trust.", cta: "Learn more", image: IMG.analytics },
+  { id: "performance", num: "19", name: "Performance Optimization", category: "Optimize", accent: A.sky, blurb: "Speed as a ranking factor and a closing factor.", cta: "Learn more", image: IMG.performance },
+  { id: "marketing-strategy", num: "20", name: "Marketing Strategy", category: "Growth", accent: A.amber, blurb: "The plan that decides where the budget goes.", cta: "Learn more", image: IMG.strategy },
 ];
 
 export const FEATURED = SHOWCASE.filter((s) => s.featured);

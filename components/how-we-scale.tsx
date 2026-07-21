@@ -5,16 +5,16 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
 import { services } from "@/lib/data";
-import { img } from "@/lib/images";
+import { homeImg } from "@/lib/home-images";
 import { gsap, SplitText, prefersReducedMotion } from "@/lib/gsap";
 
 /* The zoom scene reads left-to-right as the five disciplines, framed by the
    studio at the centre and the team at the edge. */
 const PARALLAX_IMAGES = [
   {
-    src: img.dashboard.src,
+    src: homeImg.seo.src,
     alt: "Performance dashboard measuring qualified enquiries",
-    blurDataURL: img.dashboard.blurDataURL,
+    blurDataURL: homeImg.seo.blurDataURL,
   },
   ...services.map((service) => ({
     src: service.image.src,
@@ -22,9 +22,9 @@ const PARALLAX_IMAGES = [
     blurDataURL: service.image.blurDataURL,
   })),
   {
-    src: img.officeTeam.src,
-    alt: "DG Clicks team reviewing the Friday report together",
-    blurDataURL: img.officeTeam.blurDataURL,
+    src: homeImg.team.src,
+    alt: "Digi Clicks team in the studio with brand mark on the wall",
+    blurDataURL: homeImg.team.blurDataURL,
   },
 ];
 
@@ -74,21 +74,22 @@ export default function HowWeScale() {
           data-scale-intro
           className="font-mono text-[10px] uppercase tracking-[0.3em] text-cobalt"
         >
-          [ How we scale brands ]
+          [ Our approach ]
         </p>
         <h2
           id="scale-heading"
           data-scale-heading
-          className="mt-6 max-w-3xl font-display text-[clamp(2.4rem,5.2vw,4.8rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-ink"
+          className="mt-6 max-w-3xl font-display text-[clamp(2.4rem,5.2vw,4.8rem)] font-semibold leading-[1.05] tracking-[-0.045em] text-ink"
         >
-          Five disciplines. One revenue system.
+          Strategy first. Execution second.
         </h2>
         <p
           data-scale-intro
           className="mt-6 max-w-md text-sm leading-relaxed text-slate sm:text-base"
         >
-          Search, site, paid, social, and design — run as one loop, accountable
-          to qualified enquiries, not applause.
+          Every project begins by understanding your brand, audience, and
+          growth objectives — then we combine creativity, technology, and
+          market insight to create meaningful business impact.
         </p>
       </div>
 
@@ -100,10 +101,10 @@ export default function HowWeScale() {
         <div className="flex flex-col gap-8 border-t border-ink/10 pt-10 md:flex-row md:items-end md:justify-between">
           <div className="max-w-md">
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cobalt">
-              [ One accountable loop ]
+              [ Understand · strategize · create · grow ]
             </p>
             <p className="mt-3 font-display text-xl font-semibold tracking-tight text-ink md:text-2xl">
-              Five disciplines, one measurement loop — kept honest every Friday.
+              Successful digital experiences aren&apos;t built by chance.
             </p>
           </div>
           <nav
@@ -114,7 +115,7 @@ export default function HowWeScale() {
               href="/contact"
               className="inline-flex items-center gap-2 rounded-pill bg-ink px-6 py-3 text-sm font-medium text-white transition-colors duration-glass hover:bg-cobalt"
             >
-              Book a growth audit <span aria-hidden>→</span>
+              Book a discovery call <span aria-hidden>→</span>
             </Link>
             <Link
               href="/services"

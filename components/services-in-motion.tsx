@@ -436,8 +436,9 @@ export default function ServicesInMotion() {
             Five levers. One measured system.
           </h2>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-slate sm:text-base">
-            Every capability exists to move a business signal — rankings,
-            enquiries, bookings — and ships with a plain-English Friday report.
+            Every capability exists to strengthen a specific part of your
+            business&apos;s digital ecosystem — measured with clear,
+            plain-English reporting.
           </p>
           {horizontal && (
             <p
@@ -511,7 +512,7 @@ export default function ServicesInMotion() {
                   </p>
                   <h3
                     data-siv-title
-                    className="mt-4 max-w-2xl font-display text-[clamp(2.4rem,5.6vw,5.2rem)] font-medium leading-[0.98] tracking-[-0.04em] text-ink"
+                    className="mt-4 max-w-2xl font-display text-[clamp(2.4rem,5.6vw,5.2rem)] font-medium leading-[1.05] tracking-[-0.04em] text-ink"
                   >
                     {service.title}
                   </h3>

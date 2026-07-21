@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { type PointerEvent, useMemo, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
@@ -12,30 +13,49 @@ import {
 import { gsap, SplitText, prefersReducedMotion } from "@/lib/gsap";
 
 /* ════════════════════════════════════════════════════════════════
-   CONTACT — "the first work order". A dark intake sheet on the left
-   writes a live carbon copy on the right. No invented backend: a
-   valid brief hands off to a prefilled email. Matches the studio's
-   dark-luxury language.
+   CONTACT — "the first work order", glass edition. Frosted panels
+   float over an aurora field; a seamless studio-photo marquee rolls
+   between the headline and the intake sheet. No invented backend:
+   a valid brief hands off to a prefilled email.
    ════════════════════════════════════════════════════════════════ */
 
 const SERVICES = [
-  "SEO / Search",
-  "Website / Build",
-  "Paid Ads",
-  "Social Media",
-  "Brand / Design",
+  "Website Design & Development",
+  "Brand Strategy & Identity",
+  "Social Media Management",
+  "Performance Marketing",
+  "Creative Design Solutions",
+  "AI-Powered Solutions",
   "Not sure yet",
 ] as const;
 
 const BUDGETS = ["< $2k / mo", "$2–5k / mo", "$5–10k / mo", "$10k+ / mo"] as const;
 
 const STEPS = [
-  { n: "01", t: "You send the brief", d: "The problem and the business context — not a spec." },
-  { n: "02", t: "We reply in 1 day", d: "A human, with first questions and whether we're a fit." },
-  { n: "03", t: "Free growth audit", d: "The leak map, whether or not you hire us to fix it." },
+  { n: "01", t: "Discovery call", d: "We learn about your business, goals, audience, and challenges." },
+  { n: "02", t: "Strategy & proposal", d: "A customized roadmap aligned with your objectives." },
+  { n: "03", t: "We get to work", d: "Design, development, and execution with full transparency." },
 ];
 
-const CONTACT_EMAIL = "hello@dgclicks.com";
+const PHOTOS = [
+  { src: "/images/studio-digi-clicks-brand.jpg", caption: "Digi Clicks studio" },
+  { src: "/images/office-team.jpg", caption: "The bench" },
+  { src: "/images/work-design.jpg", caption: "Design reviews" },
+  { src: "/images/office-collab.jpg", caption: "Working sessions" },
+  { src: "/images/work-code.jpg", caption: "Builds shipping" },
+  { src: "/images/office-workshop.jpg", caption: "Strategy walls" },
+  { src: "/images/dashboard.jpg", caption: "Live numbers" },
+  { src: "/images/office-remote.jpg", caption: "Remote bench" },
+] as const;
+
+const CONTACT_EMAIL = "info@digiclicks.ca";
+const CONTACT_PHONE = "(647) 549-7017";
+const CONTACT_ADDRESS = "12545 Coleraine Drive, Unit 9, Caledon ON L7E 3B5";
+
+/* Shared frosted-panel recipe */
+const GLASS =
+  "border border-white/[0.14] bg-white/[0.055] backdrop-blur-2xl " +
+  "shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_24px_60px_-24px_rgba(0,0,0,0.7)]";
 
 export default function ContactExperience() {
   const ref = useRef<HTMLElement>(null);
@@ -63,16 +83,16 @@ export default function ContactExperience() {
   const valid = form.name.trim() && /\S+@\S+\.\S+/.test(form.email) && form.message.trim();
 
   const mailto = useMemo(() => {
-    const subject = `Growth work order — ${form.name || "New enquiry"}`;
+    const subject = `New enquiry — ${form.name || "Digi Clicks"}`;
     const body = [
-      `Work order: ${orderId}`,
+      `Reference: ${orderId}`,
       `Name: ${form.name}`,
       `Email: ${form.email}`,
       `Company / site: ${form.company || "—"}`,
-      `Channel: ${form.service || "—"}`,
+      `Service: ${form.service || "—"}`,
       `Budget: ${form.budget || "—"}`,
       "",
-      "What's blocking growth:",
+      "Project details:",
       form.message,
     ].join("\n");
     return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -91,6 +111,13 @@ export default function ContactExperience() {
           .from(split.words, { yPercent: 120, duration: 1, ease: "power4.out", stagger: 0.05 })
           .from("[data-c-fade]", { y: 24, opacity: 0, duration: 0.7, stagger: 0.08, ease: "power3.out" }, "-=0.7");
       }
+      gsap.from("[data-c-marquee]", {
+        autoAlpha: 0,
+        y: 32,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: { trigger: "[data-c-marquee]", start: "top 90%" },
+      });
       gsap.from("[data-c-panel]", {
         y: 40,
         autoAlpha: 0,
@@ -107,50 +134,79 @@ export default function ContactExperience() {
       ref={ref}
       className="relative isolate overflow-hidden bg-[#070707] pb-28 pt-32 text-white md:pt-40"
     >
-      {/* atmosphere */}
+      {/* aurora field — colour for the glass to refract */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_15%_0%,rgba(77,159,255,0.26),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_45%_40%_at_100%_15%,rgba(206,219,88,0.08),transparent_55%)]" />
+        <div className="absolute -left-40 -top-48 h-[38rem] w-[38rem] rounded-full bg-[#2A5FD9]/35 blur-[140px]" />
+        <div className="absolute -right-32 top-24 h-[30rem] w-[30rem] rounded-full bg-[#4D9FFF]/20 blur-[130px]" />
+        <div className="absolute left-1/3 top-[42rem] h-[26rem] w-[26rem] rounded-full bg-[#CEDB58]/[0.09] blur-[120px]" />
+        <div className="absolute -bottom-56 right-1/4 h-[34rem] w-[34rem] rounded-full bg-[#2E6BA8]/25 blur-[150px]" />
+        {/* fine grain so the blur doesn't band */}
+        <div
+          className="absolute inset-0 opacity-[0.35] mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E\")",
+          }}
+        />
       </div>
 
       <div className="wrap relative z-10">
         {/* header */}
         <div className="max-w-3xl">
-          <p data-c-fade className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-white/45">
-            <span className="h-px w-8 bg-white/30" />
-            Start a work order
+          <p
+            data-c-fade
+            className="inline-flex items-center gap-2.5 rounded-full border border-white/[0.14] bg-white/[0.06] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.28em] text-white/60 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#CEDB58] shadow-[0_0_10px_rgba(206,219,88,0.9)]" />
+            Get in touch
           </p>
           <h1
             ref={headlineRef}
-            className="mt-6 max-w-[14ch] font-display text-[clamp(2.6rem,7vw,5.5rem)] font-semibold leading-[0.9] tracking-[-0.045em]"
+            className="mt-7 max-w-[14ch] font-display text-[clamp(2.6rem,7vw,5.5rem)] font-semibold leading-[1.05] tracking-[-0.045em]"
           >
-            Tell us where it leaks.
+            Ready to build something bigger?
           </h1>
           <p data-c-fade className="mt-6 max-w-md text-lg leading-snug text-white/60">
-            Start with the problem, not a shopping list. You'll get a human reply
-            within one business day and a free growth audit either way.
+            Every successful business begins with a strong foundation. Tell us about
+            your business and goals — we&apos;ll reply within one business day.
           </p>
         </div>
+      </div>
 
+      {/* studio photo marquee — full-bleed, pauses on hover */}
+      <div data-c-marquee className="relative z-10 mt-14 md:mt-16">
+        <PhotoMarquee />
+      </div>
+
+      <div className="wrap relative z-10">
         {/* grid */}
-        <div data-c-grid className="mt-16 grid gap-4 lg:grid-cols-[1.1fr_0.9fr] lg:gap-6">
+        <div data-c-grid className="mt-14 grid gap-4 md:mt-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-6">
           {/* form */}
           <form
             data-c-panel
             onSubmit={(e) => e.preventDefault()}
-            className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-8"
+            className={`relative overflow-hidden rounded-3xl p-6 sm:p-8 ${GLASS}`}
           >
-            <div className="grid gap-5 sm:grid-cols-2">
+            {/* top sheen */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#4D9FFF]/15 blur-[80px]"
+            />
+            <div className="relative grid gap-5 sm:grid-cols-2">
               <Field label="Name" required value={form.name} onChange={set("name")} placeholder="Jane Doe" />
               <Field label="Email" required type="email" value={form.email} onChange={set("email")} placeholder="jane@company.com" />
             </div>
-            <div className="mt-5">
+            <div className="relative mt-5">
               <Field label="Company / website" value={form.company} onChange={set("company")} placeholder="company.com" />
             </div>
 
-            <fieldset className="mt-7">
-              <legend className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                Channel
+            <fieldset className="relative mt-7">
+              <legend className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/45">
+                Service
               </legend>
               <div className="mt-3 flex flex-wrap gap-2">
                 {SERVICES.map((s) => (
@@ -161,8 +217,8 @@ export default function ContactExperience() {
               </div>
             </fieldset>
 
-            <fieldset className="mt-6">
-              <legend className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
+            <fieldset className="relative mt-6">
+              <legend className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/45">
                 Monthly budget
               </legend>
               <div className="mt-3 flex flex-wrap gap-2">
@@ -174,98 +230,171 @@ export default function ContactExperience() {
               </div>
             </fieldset>
 
-            <div className="mt-7">
-              <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                What's blocking growth? <span className="text-[#4D9FFF]">*</span>
+            <div className="relative mt-7">
+              <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/45">
+                Tell us about your project <span className="text-[#4D9FFF]">*</span>
               </label>
               <textarea
                 value={form.message}
                 onChange={(e) => set("message")(e.target.value)}
                 rows={4}
-                placeholder="Referrals dried up, ads aren't converting, the site is slow…"
-                className="mt-3 w-full resize-none rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none transition-colors duration-300 focus:border-[#4D9FFF]/60"
+                placeholder="Your goals, timeline, and what success looks like…"
+                className="mt-3 w-full resize-none rounded-xl border border-white/[0.14] bg-white/[0.05] px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none backdrop-blur-xl transition-all duration-300 focus:border-[#4D9FFF]/70 focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(77,159,255,0.16)]"
               />
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-5">
+            <div className="relative mt-8 flex flex-wrap items-center gap-5">
               <MagneticSubmit href={valid ? mailto : undefined} disabled={!valid} />
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/35">
-                {valid ? "Opens your email, prefilled" : "Name, email & the problem to send"}
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">
+                {valid ? "Opens your email, prefilled" : "Name, email & project details to send"}
               </p>
             </div>
           </form>
 
           {/* live carbon copy */}
           <div data-c-panel className="flex flex-col gap-4">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0b0c10] p-6 sm:p-7">
+            <div className={`relative overflow-hidden rounded-3xl p-6 sm:p-7 ${GLASS}`}>
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 opacity-40"
-                style={{ background: "radial-gradient(80% 60% at 100% 0%, rgba(77,159,255,0.18), transparent 60%)" }}
+                className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
               />
-              <div className="relative flex items-center justify-between border-b border-dashed border-white/12 pb-4">
-                <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/45">
-                  Carbon copy
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 opacity-50"
+                style={{ background: "radial-gradient(80% 60% at 100% 0%, rgba(77,159,255,0.16), transparent 60%)" }}
+              />
+              <div className="relative flex items-center justify-between border-b border-dashed border-white/15 pb-4">
+                <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">
+                  Message preview
                 </span>
-                <span className="font-mono text-[10px] tracking-widest text-[#4D9FFF]">{orderId}</span>
+                <span className="rounded-full border border-[#4D9FFF]/30 bg-[#4D9FFF]/10 px-2.5 py-1 font-mono text-[10px] tracking-widest text-[#7cbaff] backdrop-blur-md">
+                  {orderId}
+                </span>
               </div>
               <dl className="relative mt-5 space-y-3.5 font-mono text-[12px]">
-                <Row k="Client" v={form.name} />
+                <Row k="Name" v={form.name} />
                 <Row k="Contact" v={form.email} />
                 <Row k="Company" v={form.company} />
-                <Row k="Channel" v={form.service} />
+                <Row k="Service" v={form.service} />
                 <Row k="Budget" v={form.budget} />
                 <div className="pt-1">
-                  <dt className="text-white/40">Brief</dt>
-                  <dd className="mt-1.5 min-h-[3.5rem] whitespace-pre-wrap rounded-lg border border-white/8 bg-black/30 p-3 leading-relaxed text-white/80">
-                    {form.message || <span className="text-white/25">The problem, in your words…</span>}
+                  <dt className="text-white/45">Message</dt>
+                  <dd className="mt-1.5 min-h-[3.5rem] whitespace-pre-wrap rounded-xl border border-white/10 bg-black/25 p-3 leading-relaxed text-white/80 backdrop-blur-md">
+                    {form.message || <span className="text-white/25">Your message…</span>}
                   </dd>
                 </div>
               </dl>
-              <div className="relative mt-5 flex items-center gap-2 border-t border-dashed border-white/12 pt-4">
-                <span className={`h-2 w-2 rounded-full ${valid ? "bg-[#CEDB58]" : "bg-white/20"}`} />
-                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
+              <div className="relative mt-5 flex items-center gap-2 border-t border-dashed border-white/15 pt-4">
+                <span
+                  className={`h-2 w-2 rounded-full ${
+                    valid ? "bg-[#CEDB58] shadow-[0_0_12px_rgba(206,219,88,0.9)]" : "bg-white/20"
+                  }`}
+                />
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/50">
                   {valid ? "Ready to send" : "Draft"}
                 </span>
               </div>
             </div>
 
             {/* what happens next */}
-            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-7">
-              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/45">
+            <div className={`relative overflow-hidden rounded-3xl p-6 sm:p-7 ${GLASS}`}>
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
+              />
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">
                 What happens next
               </p>
               <ol className="mt-5 space-y-5">
                 {STEPS.map((s) => (
                   <li key={s.n} className="flex gap-4">
-                    <span className="font-mono text-[11px] tracking-widest text-[#4D9FFF]">{s.n}</span>
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#4D9FFF]/30 bg-[#4D9FFF]/10 font-mono text-[10px] tracking-widest text-[#7cbaff] backdrop-blur-md">
+                      {s.n}
+                    </span>
                     <div>
                       <p className="text-sm font-medium text-white">{s.t}</p>
-                      <p className="mt-1 text-xs leading-relaxed text-white/45">{s.d}</p>
+                      <p className="mt-1 text-xs leading-relaxed text-white/50">{s.d}</p>
                     </div>
                   </li>
                 ))}
               </ol>
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/8 pt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/45">
-                <a href={`mailto:${CONTACT_EMAIL}`} className="transition-colors hover:text-[#4D9FFF]">
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/50">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="transition-colors hover:text-[#7cbaff]">
                   {CONTACT_EMAIL}
                 </a>
-                <span>Bolton, Ontario</span>
-                <span className="text-white/30">Replies in 1 business day</span>
+                <a href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, "")}`} className="transition-colors hover:text-[#7cbaff]">
+                  {CONTACT_PHONE}
+                </a>
+                <span>Caledon, Ontario</span>
               </div>
             </div>
           </div>
         </div>
 
-        <p data-c-fade className="mt-10 max-w-xl text-xs leading-relaxed text-white/30">
-          Prefer to keep it casual? Email us directly at{" "}
+        <p data-c-fade className="mt-10 max-w-xl text-xs leading-relaxed text-white/35">
+          Prefer to talk it through? Reach us directly at{" "}
           <Link href={`mailto:${CONTACT_EMAIL}`} className="text-white/60 underline-offset-4 hover:underline">
             {CONTACT_EMAIL}
           </Link>{" "}
-          — the work order just gives us a head start.
+          or call {CONTACT_PHONE}. {CONTACT_ADDRESS}.
         </p>
       </div>
     </section>
+  );
+}
+
+/* ————————————————————————— photo marquee ————————————————————————— */
+function PhotoMarquee() {
+  return (
+    <div
+      className="marquee-group group relative overflow-hidden py-2"
+      style={{
+        maskImage:
+          "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        WebkitMaskImage:
+          "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+      }}
+    >
+      <div
+        className="marquee-track flex w-max gap-4 pr-4"
+        style={{ "--marquee-duration": "52s" } as React.CSSProperties}
+      >
+        {[false, true].map((clone) => (
+          <div
+            key={clone ? "clone" : "original"}
+            aria-hidden={clone || undefined}
+            className="flex shrink-0 gap-4"
+          >
+            {PHOTOS.map((p) => (
+              <figure
+                key={p.src}
+                className="group/card relative h-48 w-72 shrink-0 overflow-hidden rounded-2xl border border-white/[0.14] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_16px_40px_-16px_rgba(0,0,0,0.8)] sm:h-56 sm:w-80"
+              >
+                <Image
+                  src={p.src}
+                  alt={clone ? "" : `Digi Clicks studio — ${p.caption}`}
+                  fill
+                  sizes="(max-width: 640px) 288px, 320px"
+                  className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-[1.06]"
+                />
+                {/* glass caption bar */}
+                <figcaption className="absolute inset-x-2.5 bottom-2.5 flex items-center justify-between rounded-xl border border-white/20 bg-white/10 px-3.5 py-2 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/85">
+                    {p.caption}
+                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#CEDB58] shadow-[0_0_8px_rgba(206,219,88,0.9)]" />
+                </figcaption>
+                {/* subtle vignette for caption legibility */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"
+                />
+              </figure>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -287,7 +416,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
+      <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/45">
         {label} {required && <span className="text-[#4D9FFF]">*</span>}
       </span>
       <input
@@ -295,7 +424,7 @@ function Field({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="mt-2.5 w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none transition-colors duration-300 focus:border-[#4D9FFF]/60"
+        className="mt-2.5 w-full rounded-xl border border-white/[0.14] bg-white/[0.05] px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none backdrop-blur-xl transition-all duration-300 focus:border-[#4D9FFF]/70 focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(77,159,255,0.16)]"
       />
     </label>
   );
@@ -314,10 +443,10 @@ function Chip({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full border px-3.5 py-2 text-xs transition-all duration-300 ${
+      className={`rounded-full border px-3.5 py-2 text-xs backdrop-blur-xl transition-all duration-300 ${
         active
-          ? "border-[#4D9FFF] bg-[#4D9FFF] font-medium text-[#05070c]"
-          : "border-white/12 text-white/60 hover:border-white/30 hover:text-white"
+          ? "border-[#4D9FFF]/60 bg-[#4D9FFF]/25 font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_0_20px_-4px_rgba(77,159,255,0.6)]"
+          : "border-white/[0.14] bg-white/[0.04] text-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] hover:border-white/30 hover:bg-white/[0.08] hover:text-white"
       }`}
     >
       {children}
@@ -328,7 +457,7 @@ function Chip({
 function Row({ k, v }: { k: string; v: string }) {
   return (
     <div className="flex items-baseline justify-between gap-4">
-      <dt className="shrink-0 text-white/40">{k}</dt>
+      <dt className="shrink-0 text-white/45">{k}</dt>
       <dd className={`truncate text-right ${v ? "text-white/85" : "text-white/25"}`}>
         {v || "—"}
       </dd>
@@ -356,8 +485,8 @@ function MagneticSubmit({ href, disabled }: { href?: string; disabled?: boolean 
 
   if (disabled) {
     return (
-      <span className="inline-flex cursor-not-allowed items-center gap-3 rounded-full bg-white/10 py-4 pl-7 pr-4 text-sm font-semibold text-white/40">
-        Send the work order
+      <span className="inline-flex cursor-not-allowed items-center gap-3 rounded-full border border-white/[0.14] bg-white/[0.06] py-4 pl-7 pr-4 text-sm font-semibold text-white/40 backdrop-blur-xl">
+        Send message
         <span className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-white/40">→</span>
       </span>
     );

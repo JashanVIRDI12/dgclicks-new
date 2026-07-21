@@ -115,7 +115,7 @@ export default function ServicesIndex() {
             </p>
             <h2
               ref={headingRef}
-              className="mt-4 max-w-[14ch] font-display text-[clamp(2.2rem,5vw,4rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-white"
+              className="mt-4 max-w-[14ch] font-display text-[clamp(2.2rem,5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white"
             >
               Everything under one roof.
             </h2>

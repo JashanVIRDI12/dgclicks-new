@@ -8,7 +8,7 @@ export default function ServicesLoading() {
     >
       <div className="w-full max-w-sm">
         <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.1em] text-fog">
-          <span>DG Clicks</span>
+          <span>Digi Clicks</span>
           <span>Connecting service readouts</span>
         </div>
         <div className="mt-4 h-px overflow-hidden bg-white/15">

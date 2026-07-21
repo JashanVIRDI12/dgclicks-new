@@ -34,7 +34,7 @@ export default function FinalCta() {
       <div className="absolute inset-0 z-0" aria-hidden>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/frames/frame_0603.webp"
+          src="/images/generated/home-team-4k.png"
           alt=""
           className="h-full w-full object-cover opacity-25"
           loading="lazy"
@@ -49,21 +49,21 @@ export default function FinalCta() {
           id="final-cta-heading"
           className="font-display text-headline-sm"
         >
-          Ready for a Friday report you actually trust?
+          Ready to build something bigger?
         </h2>
         <p data-final className="mx-auto mt-5 max-w-xl text-body text-slate">
-          Tell us where the pipeline leaks. We&apos;ll map the fixes — whether
-          or not you hire us to ship them.
+          Every successful business begins with a strong foundation. Let&apos;s
+          build a digital presence that reflects the quality of your business.
         </p>
         <div
           data-final
           className="mt-10 flex flex-wrap items-center justify-center gap-3"
         >
           <Link href="/contact" className="btn-primary">
-            Start a free growth audit
+            Book a discovery call
           </Link>
           <Link href="/about" className="btn-secondary">
-            Meet the studio
+            Meet the team
           </Link>
         </div>
       </div>

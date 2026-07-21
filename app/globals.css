@@ -92,6 +92,7 @@ p {
     border: 1px solid var(--glass-border-strong);
   }
 
+
   .eyebrow {
     @apply font-display text-eyebrow uppercase text-chrome-dim;
   }
@@ -160,8 +161,48 @@ p {
   }
 }
 
+@layer components {
+  .loader {
+    width: 28px;
+    height: 28px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-top-color: #4d9fff;
+    border-radius: 9999px;
+    animation: loader-spin 0.7s linear infinite;
+  }
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Infinite photo marquee (contact) ─────────────────────── */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-x var(--marquee-duration, 48s) linear infinite;
+  will-change: transform;
+}
+
+.marquee-group:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none;
   }
 }

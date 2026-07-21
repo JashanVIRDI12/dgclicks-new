@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Azeret_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/Nav";
+import { Navbar } from "@/components/ui/mini-navbar";
 import SmoothWrapper from "@/components/smooth-wrapper";
 
 // Inter — the neutral, high-legibility sans used across modern tech
@@ -20,23 +20,25 @@ const azeretMono = Azeret_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DG Clicks — Clicks are cheap. Clients are the point.",
+  title: "Digi Clicks — Building Digital Experiences That Move Businesses Forward",
   description:
-    "DG Clicks is a digital growth studio in Bolton, Ontario. SEO, website development, paid ads, social media management, and graphic design — measured in qualified enquiries, not impressions.",
+    "Digi Clicks is a digital agency in Caledon, Ontario. Website design & development, brand strategy, social media management, performance marketing, creative design, and AI-powered solutions.",
   keywords: [
     "digital marketing agency",
-    "SEO",
-    "paid ads",
+    "website design",
     "web development",
+    "brand strategy",
     "social media management",
-    "graphic design",
-    "Bolton Ontario",
+    "performance marketing",
+    "SEO",
+    "AI solutions",
+    "Caledon Ontario",
     "Canada",
   ],
   openGraph: {
-    title: "DG Clicks — Digital growth studio",
+    title: "Digi Clicks — Design. Strategy. Growth.",
     description:
-      "SEO, website development, paid ads, social media management, and graphic design built to create qualified enquiries. Bolton, Ontario.",
+      "Website design & development, brand strategy, social media management, performance marketing, creative design, and AI-powered solutions — Caledon, Ontario.",
     type: "website",
     locale: "en_CA",
   },
@@ -61,10 +63,8 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <SmoothWrapper>
-          <Nav />
-          {children}
-        </SmoothWrapper>
+        <Navbar />
+        <SmoothWrapper>{children}</SmoothWrapper>
       </body>
     </html>
   );

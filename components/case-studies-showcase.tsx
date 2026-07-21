@@ -22,11 +22,11 @@ type Study = {
   solution: string;
   results: Array<{ value: string; label: string }>;
   stack: string[];
-  image: { src: string; blurDataURL: string };
+  image: string;
   alt: string;
 };
 
-const STUDIES: Study[] = [
+const LEGACY_STUDIES = [
   {
     id: "harrier",
     client: "Harrier Transport",
@@ -98,6 +98,63 @@ const STUDIES: Study[] = [
     stack: ["Local SEO", "GBP", "WordPress", "Social content"],
     image: img.caseChw,
     alt: "Warmly lit restaurant table setting",
+  },
+];
+
+const STUDIES: Study[] = [
+  {
+    id: "activecoach",
+    client: "Active Coachlines",
+    industry: "Charter transportation",
+    year: "2024–25",
+    challenge:
+      "The website buried fleet options, trip details, and the quote form, leaving high-intent charter searches without a clear booking route.",
+    solution:
+      "We rebuilt the journey around charter intent: focused service pages, local search visibility, a direct quote path, and tracking across every step.",
+    results: [
+      { value: "8 → 140+", label: "enquiries / month" },
+      { value: "17×", label: "pipeline growth" },
+      { value: "1", label: "connected booking path" },
+    ],
+    stack: ["Web strategy", "Local SEO", "Lead generation", "Analytics"],
+    image: "/activecoach.png",
+    alt: "Active Coach motor coach photographed in Bolton, Ontario",
+  },
+  {
+    id: "phantom",
+    client: "Phantom Logistics",
+    industry: "Freight & logistics",
+    year: "2025",
+    challenge:
+      "A strong fleet and recognizable identity needed a digital presence that made services, coverage, and capacity immediately clear to shippers.",
+    solution:
+      "We organized the experience around shipper intent, sharpened the service messaging, and built a direct route from search discovery to a freight quote.",
+    results: [
+      { value: "Search", label: "discovery system" },
+      { value: "Clear", label: "service architecture" },
+      { value: "Quote", label: "primary action" },
+    ],
+    stack: ["SEO", "Web development", "Content strategy", "Lead capture"],
+    image: "/phantom.png",
+    alt: "Phantom Logistics tractor trailer at an Ontario freight terminal",
+  },
+  {
+    id: "smartx",
+    client: "SmartX Logistics",
+    industry: "Transportation & logistics",
+    year: "2025",
+    challenge:
+      "SmartX needed its digital presence to communicate the same confidence, speed, and cross-market reach visible in its fleet operation.",
+    solution:
+      "A sharper brand-led website structure, search-ready service pages, and a focused enquiry journey turned a broad logistics offer into a clear commercial story.",
+    results: [
+      { value: "Brand", label: "stronger presence" },
+      { value: "Web", label: "clear service story" },
+      { value: "Lead", label: "focused enquiry path" },
+    ],
+    stack: ["Brand strategy", "Web design", "SEO", "Lead generation"],
+    image: "/smartx.png",
+    alt: "SmartX Logistics truck crossing a modern city bridge at sunset",
   },
 ];
 
@@ -223,8 +280,8 @@ export default function CaseStudiesShowcase() {
             data-cs-heading
             className="max-w-xs text-sm leading-relaxed text-slate md:pb-1 md:text-right"
           >
-            Four engagements, four different markets — one measurement loop
-            underneath all of them.
+            Three transportation brands, three distinct growth systems — one
+            accountable measurement loop underneath them all.
           </p>
         </div>
 
@@ -238,12 +295,10 @@ export default function CaseStudiesShowcase() {
             <div data-cs-media className="absolute inset-0 will-change-[clip-path,transform]">
               <Image
                 key={study.id}
-                src={study.image.src}
+                src={study.image}
                 alt={study.alt}
                 fill
                 sizes="(max-width: 1023px) 100vw, 50vw"
-                placeholder="blur"
-                blurDataURL={study.image.blurDataURL}
                 className="object-cover"
               />
               <div

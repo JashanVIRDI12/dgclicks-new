@@ -39,7 +39,7 @@ const SCENES: Scene[] = [
     word: "FREIGHT",
     headline: "Loads booked before wheels roll.",
     copy: "Lane-level campaigns that reach shippers, not job boards.",
-    img: "/images/serve-freight-truck.jpg",
+    img: "/images/generated/serve-freight-4k.png",
     alt: "Semi-truck hauling a white trailer along a mountain highway at dusk",
     stat: { value: 5.2, decimals: 1, suffix: "×", label: "shipper quote requests" },
     panelW: "lg:w-[86vw]",
@@ -54,7 +54,7 @@ const SCENES: Scene[] = [
     word: "CRAFT",
     headline: "The room sells the sofa.",
     copy: "Room-scene creative that ends in a measured quote and a delivery date.",
-    img: "/images/serve-furniture.jpg",
+    img: "/images/generated/serve-furniture-4k.png",
     alt: "Emerald green velvet sofa in an elegant furniture showroom with oak flooring",
     stat: { value: 3.1, decimals: 1, suffix: "×", label: "showroom visits & deliveries" },
     flip: true,
@@ -71,7 +71,7 @@ const SCENES: Scene[] = [
     word: "DINING",
     headline: "From craving to booked table.",
     copy: "Local search that ends at your host stand, not a listicle.",
-    img: "/images/serve-restaurant.jpg",
+    img: "/images/generated/serve-restaurant-4k.png",
     alt: "Moody interior of an upscale restaurant with dark banquettes and warm brass light",
     stat: { value: 4.8, decimals: 1, suffix: "×", label: "reservations from search" },
     panelW: "lg:w-[86vw]",
@@ -86,7 +86,7 @@ const SCENES: Scene[] = [
     word: "ESTATE",
     headline: "Listings that book showings.",
     copy: "Every scroll should end in a walkthrough request.",
-    img: "/images/serve-realestate.jpg",
+    img: "/images/generated/serve-realestate-4k.png",
     alt: "Architectural photograph of a modern timber house glowing at dusk",
     stat: { value: 3, suffix: "×", label: "qualified viewings per listing" },
     flip: true,
@@ -102,7 +102,7 @@ const SCENES: Scene[] = [
     word: "PRINT",
     headline: "Quotes straight off the press.",
     copy: "B2B search that lands on an instant-quote form, not a phone tree.",
-    img: "/images/serve-printing.jpg",
+    img: "/images/generated/serve-printing-4k.png",
     alt: "Large-format press printing vibrant colour brochures stacked in a print shop",
     stat: { value: 5, suffix: "×", label: "quote submissions per month" },
     panelW: "lg:w-[86vw]",
@@ -117,7 +117,7 @@ const SCENES: Scene[] = [
     word: "TRADES",
     headline: "Booked solid, every season.",
     copy: "Spring roofs, summer decks, winter furnaces — demand captured early.",
-    img: "/images/serve-trades.jpg",
+    img: "/images/generated/serve-trades-4k.png",
     alt: "Construction crew in orange vests framing a roof at golden hour",
     stat: { value: 2.7, decimals: 1, suffix: "×", label: "booked estimates per season" },
     flip: true,
@@ -548,7 +548,7 @@ export default function WhoWeServe() {
           </p>
           <h2
             data-serve-intro-heading
-            className="mt-6 font-display text-[clamp(2.8rem,6.2vw,6.5rem)] font-medium leading-[0.97] tracking-[-0.045em] !text-white"
+            className="mt-6 font-display text-[clamp(2.8rem,6.2vw,6.5rem)] font-medium leading-[1.05] tracking-[-0.045em] !text-white"
           >
             From loading docks to dinner tables.
           </h2>

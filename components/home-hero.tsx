@@ -68,7 +68,7 @@ export default function HomeHero() {
         ]}
         contactText="Contact"
         contactHref="/contact"
-        ctaText="Free growth audit"
+        ctaText="Get in touch"
         onCtaClick={() => {
           window.location.href = "/contact";
         }}
@@ -79,20 +79,21 @@ export default function HomeHero() {
           <div className="max-w-xl">
             <h1
               ref={headlineRef}
-              className="font-display text-[clamp(2.35rem,4.6vw,3.9rem)] font-semibold leading-[1.03] tracking-[-0.035em] text-[#0B1830]"
+              className="font-display text-[clamp(2.35rem,4.6vw,3.9rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-[#0B1830]"
             >
-              Clicks are cheap. Clients are the point.
+              Building digital experiences that move businesses forward.
             </h1>
             <p data-hero-fade className="mt-4 max-w-md text-base text-[#51617A]">
-              SEO, sites, ads, and social — measured in qualified enquiries,
-              not impressions.
+              Design, strategy, and growth — website development, branding,
+              social media, performance marketing, creative design, and
+              AI-powered solutions, under one experienced team.
             </p>
             <div data-hero-fade className="mt-7 flex flex-wrap gap-3">
               <Link
                 href="/contact"
                 className="btn-primary pointer-events-auto"
               >
-                Start a free growth audit
+                Book a discovery call
               </Link>
               <Link
                 href="/#showcase"
@@ -108,8 +109,8 @@ export default function HomeHero() {
             className="hidden flex-col items-end gap-3 text-right sm:flex"
           >
             <p className="max-w-[13rem] text-caption text-[#51617A]">
-              <span className="font-medium text-[#0F1B2D]">40+</span> Canadian
-              operators trust the Friday report
+              <span className="font-medium text-[#0F1B2D]">10+</span> years
+              building digital experiences that grow businesses
             </p>
             <span
               className="block h-10 w-px bg-gradient-to-b from-[#2A5FD9] to-transparent"

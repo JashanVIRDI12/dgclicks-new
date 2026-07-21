@@ -3,13 +3,13 @@ import SiteFooter from "@/components/site-footer";
 import ContactExperience from "@/components/contact/ContactExperience";
 
 export const metadata: Metadata = {
-  title: "Start a growth work order | DG Clicks Canada",
+  title: "Contact Us | Digi Clicks",
   description:
-    "Tell DG Clicks where growth is leaking. Start a plain-language work order — a human reply within one business day and a free growth audit either way.",
+    "Ready to build something bigger? Get in touch with Digi Clicks for website design, branding, social media, performance marketing, creative design, and AI-powered solutions.",
   openGraph: {
-    title: "Tell us where it leaks | DG Clicks",
+    title: "Contact Digi Clicks",
     description:
-      "Start with the problem and the business context. DG Clicks replies within one business day.",
+      "Tell us about your business and goals — a human reply within one business day.",
     type: "website",
     locale: "en_CA",
   },

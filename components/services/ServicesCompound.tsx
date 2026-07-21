@@ -70,7 +70,7 @@ export default function ServicesCompound() {
             id="compound-heading"
             className="mt-4 font-display text-headline-sm !text-chrome"
           >
-            Five channels. One Friday report.
+            Five channels. One connected strategy.
           </h2>
           <p
             data-compound

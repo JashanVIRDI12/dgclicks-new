@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import type { IconType } from "react-icons";
+import { FaLinkedin } from "react-icons/fa6";
 import {
   SiFacebook,
   SiFigma,
@@ -14,6 +15,7 @@ import {
   SiNextdotjs,
   SiReact,
   SiShopify,
+  SiSketch,
   SiTiktok,
   SiYoutube,
 } from "react-icons/si";
@@ -40,9 +42,11 @@ const TECHS: Tech[] = [
   { name: "Google Ads", role: "paid search", x: 9, y: 17, big: true, icon: SiGoogleads, brand: "#4285F4" },
   { name: "Facebook", role: "paid social", x: 28, y: 8, icon: SiFacebook, brand: "#0866FF" },
   { name: "Instagram", role: "social reach", x: 49, y: 7, icon: SiInstagram, brand: "#E4405F" },
+  { name: "LinkedIn", role: "B2B social", x: 40, y: 22, icon: FaLinkedin, brand: "#0A66C2" },
   { name: "TikTok", role: "short video", x: 69, y: 10, icon: SiTiktok, brand: "#FFFFFF" },
   { name: "YouTube", role: "video ads", x: 88, y: 21, icon: SiYoutube, brand: "#FF0000" },
   { name: "Figma", role: "design system", x: 92, y: 45, big: true, icon: SiFigma, brand: "#F24E1E" },
+  { name: "Sketch", role: "graphic design", x: 75, y: 52, icon: SiSketch, brand: "#F7B500" },
   { name: "Shopify", role: "commerce", x: 84, y: 67, icon: SiShopify, brand: "#95BF47" },
   { name: "Next.js", role: "web builds", x: 65, y: 81, big: true, icon: SiNextdotjs, brand: "#FFFFFF" },
   { name: "React", role: "interfaces", x: 45, y: 86, icon: SiReact, brand: "#61DAFB" },
@@ -343,7 +347,7 @@ export default function TechStack() {
                 aria-hidden
                 className="pointer-events-none absolute left-1/2 top-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 text-center font-display text-2xl font-medium leading-snug tracking-tight text-white/[0.16] sm:text-3xl"
               >
-                Twelve platforms.
+                Fourteen platforms.
                 <br />
                 One measurement loop.
               </p>

@@ -109,11 +109,11 @@ function Masthead() {
               className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-white/45"
             >
               <span className="h-px w-8 bg-white/30" />
-              DG Clicks — Capability index
+              Digi Clicks — Capability index
             </p>
             <h1
               ref={headlineRef}
-              className="mt-6 max-w-[11ch] font-display text-[clamp(2.6rem,6.4vw,5.6rem)] font-semibold leading-[0.92] tracking-[-0.045em] text-white"
+              className="mt-6 max-w-[11ch] font-display text-[clamp(2.6rem,6.4vw,5.6rem)] font-semibold leading-[1.05] tracking-[-0.045em] text-white"
             >
               Everything a brand needs to{" "}
               <span className="italic text-[#4D9FFF]">grow.</span>
@@ -122,13 +122,13 @@ function Masthead() {
 
           <div data-mast-fade className="lg:pb-3">
             <p className="max-w-sm text-base leading-relaxed text-white/60">
-              Twenty connected disciplines, one accountable team, one Friday
-              report. Search, build, brand, and automation — measured against
-              qualified enquiries, never impressions.
+              Twenty connected disciplines, one accountable team. Design,
+              build, brand, marketing, and AI — measured against real
+              business impact, never surface-level activity.
             </p>
             <div className="mt-7 flex items-center gap-5">
               <Link href="/contact" className="btn-primary">
-                Start a free growth audit
+                Book a discovery call
               </Link>
               <span className="font-mono text-[42px] font-semibold leading-none tracking-tight text-white/10">
                 20
@@ -302,7 +302,7 @@ function FeaturedSpread({ service, order }: { service: ShowcaseService; order: n
           </div>
           <h2
             data-spread-title
-            className="mt-5 max-w-[16ch] font-display text-[clamp(2.1rem,4.6vw,3.8rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white"
+            className="mt-5 max-w-[16ch] font-display text-[clamp(2.1rem,4.6vw,3.8rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white"
           >
             {service.name}
           </h2>
@@ -315,7 +315,10 @@ function FeaturedSpread({ service, order }: { service: ShowcaseService; order: n
             </p>
           )}
           <div data-spread-fade className="mt-8">
-            <MagneticCta href="/contact" accent={service.accent}>
+            <MagneticCta
+              href={service.id === "ai-automation" ? "/ai" : "/contact"}
+              accent={service.accent}
+            >
               {service.cta}
             </MagneticCta>
           </div>
@@ -445,14 +448,14 @@ function Closing() {
     <section ref={ref} className="border-t border-white/8 bg-[#070707] py-24 md:py-32">
       <div className="wrap text-center">
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#CEDB58]">
-          One team · one pipeline
+          Ready to build something bigger?
         </p>
-        <h2 className="mx-auto mt-6 max-w-[18ch] font-display text-[clamp(2rem,5vw,4.2rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
-          Pick the levers. We'll pull all of them together.
+        <h2 className="mx-auto mt-6 max-w-[18ch] font-display text-[clamp(2rem,5vw,4.2rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+          Pick the services. We'll bring them together under one team.
         </h2>
         <div className="mt-10 flex justify-center">
           <Link href="/contact" className="btn-primary">
-            Book the audit
+            Book a discovery call
           </Link>
         </div>
       </div>

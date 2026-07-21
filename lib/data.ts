@@ -1,4 +1,5 @@
 import { img } from "./images";
+import { homeImg, type HomeImage } from "./home-images";
 
 export const heroStats = [
   "8 → 140+ qualified enquiries a month for Active Coachlines",
@@ -16,7 +17,7 @@ export type Service = {
   copy: string;
   proof: string;
   deliverables: string[];
-  image: (typeof img)[keyof typeof img];
+  image: HomeImage;
   alt: string;
   visual: "seo" | "web" | "ads" | "smm" | "graphic";
 };
@@ -34,23 +35,23 @@ export const services: Service[] = [
       "Technical fixes shipped, not just listed",
       "Content engine with monthly ranking targets",
     ],
-    image: img.dashboard,
+    image: homeImg.seo,
     alt: "Analytics dashboard glowing on a laptop screen",
     visual: "seo",
   },
   {
     id: "web",
-    title: "Website Development",
+    title: "Website Design & Development",
     outcome: "A shorter route to enquiry.",
     headline: "Build the site around the next useful action.",
     copy: "We design and build fast, conversion-first websites that explain the offer clearly, remove friction, and make it easy for the right visitor to enquire.",
-    proof: "0.8s median load — DG Clicks build standard",
+    proof: "0.8s median load — Digi Clicks build standard",
     deliverables: [
       "Page structure built around buyer questions",
       "Responsive development and launch support",
       "Analytics wired before launch day",
     ],
-    image: img.webdev,
+    image: homeImg.web,
     alt: "Code editor open on a laptop in a studio",
     visual: "web",
   },
@@ -66,8 +67,8 @@ export const services: Service[] = [
       "Landing pages that match the ad promise",
       "Weekly bid and budget decisions documented",
     ],
-    image: img.caseHarrier,
-    alt: "A transport truck on an open highway",
+    image: homeImg.ads,
+    alt: "Ads manager dashboard showing cost per lead trending down",
     visual: "ads",
   },
   {
@@ -82,13 +83,13 @@ export const services: Service[] = [
       "Creative production and publishing cadence",
       "Monthly engagement and enquiry review",
     ],
-    image: img.workDesign,
+    image: homeImg.social,
     alt: "A designer laying out campaign content on a desk",
     visual: "smm",
   },
   {
     id: "graphic-design",
-    title: "Graphic Design",
+    title: "Creative Design Solutions",
     outcome: "Build recognition at every handoff.",
     headline: "Make the business easier to recognize.",
     copy: "We create brand systems and campaign graphics that make every ad, post, proposal, and page look like it came from the same confident business.",
@@ -98,7 +99,7 @@ export const services: Service[] = [
       "Campaign and social creative production",
       "Practical templates your team can keep using",
     ],
-    image: img.workSketch,
+    image: homeImg.design,
     alt: "Website designs displayed across desktop, tablet, and mobile screens",
     visual: "graphic",
   },
@@ -292,7 +293,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "harrier-transport",
     quote:
-      "DG Clicks took us from praying for referrals to turning ad spend up and down like a tap.",
+      "Digi Clicks took us from praying for referrals to turning ad spend up and down like a tap.",
     name: "Owner",
     role: "Harrier Transport",
     result: "Paid-search demand system",
@@ -351,7 +352,7 @@ export const bigNumbers: BigNumber[] = [
     decimals: 1,
     suffix: "×",
     label: "blended ROAS",
-    note: "across every ad account we manage. Spend in, revenue out, documented in Friday reports.",
+    note: "across every ad account we manage. Spend in, revenue out, documented in clear reporting.",
   },
   {
     value: 140,
