@@ -1,18 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Azeret_Mono, Bricolage_Grotesque, Manrope } from "next/font/google";
+import { Azeret_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import SmoothWrapper from "@/components/smooth-wrapper";
 
-const bricolage = Bricolage_Grotesque({
+// Inter — the neutral, high-legibility sans used across modern tech
+// products (Apple/SF-adjacent). One family carries display + body; the
+// mono stays for instrument labels.
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-bricolage",
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -58,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${manrope.variable} ${azeretMono.variable}`}
+      className={`${inter.variable} ${azeretMono.variable}`}
     >
       <body className="font-sans text-body antialiased">
         <a href="#main" className="skip-link">

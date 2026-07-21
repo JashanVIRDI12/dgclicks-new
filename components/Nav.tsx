@@ -22,7 +22,10 @@ const LINKS = [
 
 export default function Nav() {
   const pathname = usePathname();
-  const dark = pathname.startsWith("/services") || pathname.startsWith("/about");
+  const dark =
+    pathname.startsWith("/services") ||
+    pathname.startsWith("/about") ||
+    pathname.startsWith("/contact");
   const navRef = useRef<HTMLElement>(null);
   const barRef = useRef<HTMLSpanElement>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -97,14 +100,11 @@ export default function Nav() {
   const brandText = dark ? "text-white" : "text-ink";
   const linkIdle = dark ? "text-white/55 hover:text-white" : "text-slate hover:text-ink";
   const linkActive = dark ? "text-white" : "text-ink";
-  const indicatorBg = dark
-    ? "bg-white/10 ring-1 ring-inset ring-white/10"
-    : "bg-[rgba(15,27,45,0.06)]";
   const contactClass = dark
     ? "text-white/55 hover:text-white"
     : "text-slate hover:text-ink";
   const ctaClass = dark
-    ? "bg-[#4D9FFF] text-[#05070c] hover:bg-[#CEDB58]"
+    ? "bg-gradient-to-r from-[#4D9FFF] to-[#2A5FD9] text-white shadow-[0_0_24px_-6px_rgba(77,159,255,0.7)] ring-1 ring-inset ring-white/25 hover:shadow-[0_0_30px_-2px_rgba(77,159,255,0.9)]"
     : "bg-ink text-white hover:bg-cobalt";
   const burgerClass = dark
     ? "border-white/15 bg-white/5"
@@ -174,14 +174,22 @@ export default function Nav() {
                 >
                   {link.label}
                 </Link>
-                {indicator === i && (
-                  <motion.span
-                    layoutId="nav-indicator"
-                    aria-hidden
-                    className={`absolute inset-0 rounded-pill ${indicatorBg}`}
-                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                  />
-                )}
+                {indicator === i &&
+                  (dark ? (
+                    <motion.span
+                      layoutId="nav-indicator"
+                      aria-hidden
+                      className="absolute bottom-1 left-4 right-4 h-[2px] rounded-full bg-[#4D9FFF]"
+                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    />
+                  ) : (
+                    <motion.span
+                      layoutId="nav-indicator"
+                      aria-hidden
+                      className="absolute inset-0 rounded-pill bg-[rgba(15,27,45,0.06)]"
+                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    />
+                  ))}
               </li>
             ))}
           </ul>
@@ -196,12 +204,12 @@ export default function Nav() {
             </Link>
             <Link
               href="/contact"
-              className={`group hidden items-center gap-1.5 rounded-pill px-4 py-2 text-xs font-medium transition-colors duration-glass sm:inline-flex ${ctaClass}`}
+              className={`group hidden items-center gap-2 rounded-pill px-5 py-2.5 text-[13px] font-semibold transition-all duration-glass sm:inline-flex ${ctaClass}`}
             >
               Free growth audit
               <span
                 aria-hidden
-                className="transition-transform duration-glass group-hover:translate-x-0.5"
+                className="transition-transform duration-glass group-hover:translate-x-1"
               >
                 →
               </span>

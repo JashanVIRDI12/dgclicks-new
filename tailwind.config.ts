@@ -33,8 +33,8 @@ const config: Config = {
         mistpanel: "#E9EEF5",
       },
       fontFamily: {
-        display: ["var(--font-bricolage)", "system-ui", "sans-serif"],
-        sans: ["var(--font-manrope)", "system-ui", "sans-serif"],
+        display: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         mono: ["var(--font-azeret)", "ui-monospace", "monospace"],
       },
       fontSize: {

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div>
-      <main id="main" className="bg-[#070707] text-white">
+      <main id="main" className="bg-[#070707]">
         <AboutExperience />
       </main>
       <SiteFooter />

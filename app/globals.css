@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 :root {
+  /* Inter carries the whole type system now; alias the legacy font
+     variables so older CSS modules inherit it without edits. */
+  --font-bricolage: var(--font-inter);
+  --font-manrope: var(--font-inter);
+
   --bg-void: #05070c;
   --bg-deep: #0a1224;
   --accent-cobalt: #2a5fd9;

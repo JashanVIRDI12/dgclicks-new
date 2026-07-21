@@ -1,28 +1,24 @@
 /* ————————————————————————————————————————————————————————————————
-   ABOUT — "The Studio Exhibition". Content for an immersive narrative,
-   not an about page. Copy is spare on purpose; the visuals do the
-   talking. Palette is brand-adjacent: electric blue, sky, lime,
-   violet, amber, chrome.
+   ABOUT — content for an alternating dark → white → dark narrative.
+   Real photography over mockups; factual captions; brand accents.
    ———————————————————————————————————————————————————————————————— */
 
 export const IMG = {
-  webdev: "/images/hero-webgl/webdev-1280.webp",
   dashboard: "/images/hero-webgl/dashboard-1280.webp",
+  webdev: "/images/hero-webgl/webdev-1280.webp",
   workDesign: "/images/hero-webgl/work-design-1280.webp",
   harrier: "/images/hero-webgl/case-harrier-1280.webp",
   smartx: "/images/webgl/case-smartx.webp",
   activecoach: "/images/webgl/case-activecoach.webp",
-  chw: "/images/webgl/case-chw.webp",
   workCode: "/images/work-code.jpg",
   workSketch: "/images/work-sketch.jpg",
   workspace: "/images/workspace.jpg",
+  officeTeam: "/images/office-team.jpg",
+  officeCollab: "/images/office-collab.jpg",
+  officeWorkshop: "/images/office-workshop.jpg",
+  officeRemote: "/images/office-remote.jpg",
+  strategyTable: "/images/brief-strategy-table.png",
   texture: "/images/hero-texture.jpg",
-  restaurant: "/images/serve-restaurant.jpg",
-  printing: "/images/serve-printing.jpg",
-  realestate: "/images/serve-realestate.jpg",
-  furniture: "/images/serve-furniture.jpg",
-  trades: "/images/serve-trades.jpg",
-  freight: "/images/serve-freight-truck.jpg",
 } as const;
 
 export const ACCENT = {
@@ -31,121 +27,103 @@ export const ACCENT = {
   lime: "#CEDB58",
   violet: "#9B8CFF",
   amber: "#F2996F",
-  chrome: "#D7DEE8",
 } as const;
 
-/* — Who we build for — */
-export type Audience = {
-  num: string;
-  title: string;
-  line: string;
-  tag: string;
-  accent: string;
-  image: string;
-};
-
-export const AUDIENCES: Audience[] = [
-  {
-    num: "01",
-    title: "The operators",
-    line: "Fleets, freight, and field services scaling past word-of-mouth into a demand system they can turn up and down.",
-    tag: "Logistics · Trades · B2B",
-    accent: ACCENT.blue,
-    image: IMG.harrier,
-  },
-  {
-    num: "02",
-    title: "The local heroes",
-    line: "Restaurants, showrooms, and studios claiming their postcode before the national chains notice it exists.",
-    tag: "Local · Retail · Hospitality",
-    accent: ACCENT.amber,
-    image: IMG.restaurant,
-  },
-  {
-    num: "03",
-    title: "The challengers",
-    line: "Founders who need to look inevitable long before the market agrees — and have the receipts to back it.",
-    tag: "Brand · Product · Growth",
-    accent: ACCENT.lime,
-    image: IMG.workDesign,
-  },
-];
-
-/* — Process (pinned horizontal chapters) — */
+/* — Process chapters (dark, photo per step) — */
 export type ProcessChapter = {
   num: string;
   title: string;
   line: string;
   accent: string;
+  deliverable: string;
+  meta: string;
+  image: string;
+  shot: string; // caption describing the shot
 };
 
 export const PROCESS: ProcessChapter[] = [
-  { num: "01", title: "Interrogate", line: "We tear down the funnel, the analytics, and the assumptions until the real leak is on the table.", accent: ACCENT.blue },
-  { num: "02", title: "Compose", line: "Positioning, system, and roadmap drawn as one instrument — ranked by expected revenue, dated to be judged.", accent: ACCENT.sky },
-  { num: "03", title: "Ship", line: "Pages, campaigns, and tracking go live in weekly sprints, each one measured against the week-one baseline.", accent: ACCENT.lime },
-  { num: "04", title: "Compound", line: "Budget flows to winners, losers retire without ceremony, and the Friday report tells the whole truth.", accent: ACCENT.violet },
+  {
+    num: "01",
+    title: "Interrogate",
+    line: "We tear down the funnel, the analytics, and the assumptions until the real leak is on the table.",
+    accent: ACCENT.blue,
+    deliverable: "Growth audit + leak map",
+    meta: "Week 1",
+    image: IMG.dashboard,
+    shot: "Live analytics teardown — ActiveCoach account",
+  },
+  {
+    num: "02",
+    title: "Compose",
+    line: "Positioning, system, and roadmap drawn as one instrument — ranked by expected revenue, dated to be judged.",
+    accent: ACCENT.sky,
+    deliverable: "90-day roadmap with targets",
+    meta: "Week 2",
+    image: IMG.officeWorkshop,
+    shot: "Funnel + roadmap session, Bolton studio",
+  },
+  {
+    num: "03",
+    title: "Ship",
+    line: "Pages, campaigns, and tracking go live in weekly sprints, each one measured against the week-one baseline.",
+    accent: ACCENT.lime,
+    deliverable: "Live campaigns + tracking",
+    meta: "Weeks 3–6",
+    image: IMG.webdev,
+    shot: "Build + deploy — production sprint",
+  },
+  {
+    num: "04",
+    title: "Compound",
+    line: "Budget flows to winners, losers retire without ceremony, and the Friday report tells the whole truth.",
+    accent: ACCENT.violet,
+    deliverable: "Weekly optimization loop",
+    meta: "Ongoing",
+    image: IMG.officeRemote,
+    shot: "Friday report review with the client",
+  },
 ];
 
-/* — Manifesto lines — */
+/* — Proof photography (white section) — */
+export type ProofShot = {
+  image: string;
+  label: string;
+  meta: string;
+  accent: string;
+  span: string; // grid span classes
+  ratio: string; // aspect-ratio
+};
+
+export const PROOF: ProofShot[] = [
+  { image: IMG.workspace, label: "The bench", meta: "Bolton, Ontario", accent: ACCENT.blue, span: "md:col-span-7", ratio: "16 / 10" },
+  { image: IMG.officeWorkshop, label: "Funnel sketches", meta: "Roadmap wall", accent: ACCENT.amber, span: "md:col-span-5", ratio: "16 / 10" },
+  { image: IMG.dashboard, label: "ActiveCoach", meta: "8 → 140+ enquiries", accent: ACCENT.lime, span: "md:col-span-4", ratio: "4 / 5" },
+  { image: IMG.webdev, label: "Hands on the build", meta: "Production sprint", accent: ACCENT.sky, span: "md:col-span-4", ratio: "4 / 5" },
+  { image: IMG.officeCollab, label: "Two-up review", meta: "Weekly loop", accent: ACCENT.violet, span: "md:col-span-4", ratio: "4 / 5" },
+  { image: IMG.harrier, label: "Harrier Transport", meta: "−41% cost / lead", accent: ACCENT.blue, span: "md:col-span-12", ratio: "21 / 9" },
+];
+
+/* — Systems / capability artifacts (light section) — */
+export type SystemArtifact = {
+  image: string;
+  title: string;
+  spec: string;
+  note: string;
+  accent: string;
+};
+
+export const SYSTEMS: SystemArtifact[] = [
+  { image: IMG.workCode, title: "Engineering", spec: "Next.js 14 · TypeScript", note: "Component-driven builds, shipped from a real branch, not a page builder.", accent: ACCENT.sky },
+  { image: IMG.workSketch, title: "Wireframes", spec: "Figma · low → high fidelity", note: "Every screen argued on paper before a line of code is written.", accent: ACCENT.amber },
+  { image: IMG.dashboard, title: "Measurement", spec: "0.8s load · Lighthouse 98", note: "Speed and events wired at launch — the Friday number has a source.", accent: ACCENT.lime },
+  { image: IMG.workDesign, title: "Design system", spec: "Bricolage · Manrope · Azeret", note: "One kit across ad, deck, and page so the brand never looks improvised.", accent: ACCENT.violet },
+];
+
+/* — Statement copy (dark) — */
 export const MANIFESTO: { text: string; accentWord?: string }[] = [
   { text: "We don't sell clicks. We build the machine that turns them into booked work.", accentWord: "booked work" },
   { text: "Design is a business instrument, not decoration.", accentWord: "instrument" },
   { text: "If it can't be measured on Friday, it didn't happen.", accentWord: "Friday" },
 ];
 
-/* — Craft exhibition tiles — mixed images + code-drawn mockups — */
-export type CraftTile = {
-  id: string;
-  label: string;
-  kind: "image" | "browser" | "analytics" | "brand" | "flow";
-  image?: string;
-  accent: string;
-  span: string; // tailwind grid span classes
-};
-
-export const CRAFT: CraftTile[] = [
-  { id: "interface", label: "Interface", kind: "browser", accent: ACCENT.blue, span: "md:col-span-3 md:row-span-2" },
-  { id: "type", label: "Type system", kind: "brand", accent: ACCENT.amber, span: "md:col-span-3 md:row-span-2" },
-  { id: "code", label: "Engineering", kind: "image", image: IMG.workCode, accent: ACCENT.sky, span: "md:col-span-2 md:row-span-2" },
-  { id: "data", label: "Measurement", kind: "analytics", accent: ACCENT.lime, span: "md:col-span-4" },
-  { id: "sketch", label: "Wireframes", kind: "image", image: IMG.workSketch, accent: ACCENT.chrome, span: "md:col-span-2 md:row-span-2" },
-  { id: "texture", label: "Material", kind: "image", image: IMG.texture, accent: ACCENT.violet, span: "md:col-span-2" },
-  { id: "flow", label: "Automation", kind: "flow", accent: ACCENT.violet, span: "md:col-span-4" },
-  { id: "campaign", label: "Campaign", kind: "image", image: IMG.workDesign, accent: ACCENT.amber, span: "md:col-span-2 md:row-span-2" },
-];
-
-/* — Technology ecosystem nodes — */
-export type TechNode = {
-  id: string;
-  label: string;
-  angle: number; // degrees around the core
-  accent: string;
-};
-
-export const TECH_CORE = "Growth Engine";
-export const TECH_NODES: TechNode[] = [
-  { id: "next", label: "Next.js", angle: -90, accent: ACCENT.chrome },
-  { id: "gsap", label: "GSAP", angle: -45, accent: ACCENT.lime },
-  { id: "ai", label: "AI Automation", angle: 0, accent: ACCENT.violet },
-  { id: "analytics", label: "Analytics", angle: 45, accent: ACCENT.sky },
-  { id: "seo", label: "Search", angle: 90, accent: ACCENT.blue },
-  { id: "cro", label: "CRO", angle: 135, accent: ACCENT.amber },
-  { id: "perf", label: "Performance", angle: 180, accent: ACCENT.sky },
-  { id: "report", label: "Reporting", angle: 225, accent: ACCENT.lime },
-];
-
-/* — Creative wall — the closing gallery — */
-export const WALL: { image: string; label: string }[] = [
-  { image: IMG.workDesign, label: "Brand system" },
-  { image: IMG.dashboard, label: "Reporting" },
-  { image: IMG.webdev, label: "Build" },
-  { image: IMG.workSketch, label: "Concept" },
-  { image: IMG.harrier, label: "Paid — Harrier" },
-  { image: IMG.texture, label: "Material study" },
-  { image: IMG.smartx, label: "SEO — Phantom" },
-  { image: IMG.workCode, label: "Engineering" },
-  { image: IMG.printing, label: "Print" },
-  { image: IMG.workspace, label: "Studio" },
-  { image: IMG.furniture, label: "Retail" },
-  { image: IMG.realestate, label: "Property" },
-];
+export const STATEMENT_PHOTO = IMG.officeTeam;
